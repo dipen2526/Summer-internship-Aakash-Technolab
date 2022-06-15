@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet"
+     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+     crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+    crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/myscript.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+        <div class="jumbotron py-3">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-3">
+                The Coronavirus Disease 2019(covid-19) epidemic is knocking on Indian doors after infecting tens of thousands of people in over 60 countries across the world.This week, India reported three fresh coronavirus cases,taking the total number
+                 of confirmed infection in the country to six.And since then,focus has increasingly shifted to the fallout impact of thr new Covid-19 cases and to the question of how ready the country is to fight the global outbreak.
+            </p>
+
+
+            <!--all data-->
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>Confirmed Cases</h3>
+                                <h3>{{all_data.confirmed.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-green">
+                            <div class="card-body">
+                                <h3>Recovered Cases</h3>
+                                <h3>{{all_data.recovered.value}}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-red">
+                            <div class="card-body">
+                                <h3>Deaths Cases</h3>
+                                <h3>{{all_data.deaths.value}}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!--END all data-->
+
+                <input type="text" class="form-control mt-4" placeholder="enter country here"
+                ng-model="c"
+                ng-change="get_c_data()"
+                />
+
+                <!--c data-->
+                <div class="container-fluid"  ng-if="c_data">
+                <h1 class="text-center mt-4 text-uppercase">{{c}} Status</h1>
+                <div class="row text-center mt-4">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>Confirmed Cases</h3>
+                                <h3>{{c_data.confirmed.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-green">
+                            <div class="card-body">
+                                <h3>Recovered Cases</h3>
+                                <h3>{{c_data.recovered.value}}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-red">
+                            <div class="card-body">
+                                <h3>Deaths Cases</h3>
+                                <h3>{{c_data.deaths.value}}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+                <!--end c data-->
+        </div>    
+    </div>
+</body>
+</html>
